@@ -25,13 +25,13 @@ For the rest of this chapter, we’ll look at each of the six threat categories.
 
 {% stepper %}
 {% step %}
-### Spoofing
+#### Spoofing
 
 Spoofing is pretending to be somebody else with the aim of gaining extra privileges.
 
 Let’s look at some of the ways Kubernetes prevents different types of spoofing.
 
-### Securing communications with the API server <a href="#securing-communications-with-the-api-server" id="securing-communications-with-the-api-server"></a>
+#### Securing communications with the API server <a href="#securing-communications-with-the-api-server" id="securing-communications-with-the-api-server"></a>
 
 Kubernetes comprises lots of small components that work together. These include the API server, controller manager, scheduler, cluster store, and others. It also includes node components such as the `kubelet` and container runtime. Each has its own privileges that allow it to interact with and modify the cluster. Even though Kubernetes implements a least-privilege model, spoofing the identity of any of these can cause problems.
 
@@ -49,7 +49,7 @@ As mentioned in previous chapters, all internal and external requests to the API
 
 In this model, we’d use the cluster’s self-signed CA to issue keys to internal systems. We’d then configure Kubernetes to trust one or more trusted third-party CAs for external systems.
 
-### Securing Pod communications <a href="#securing-pod-communications" id="securing-pod-communications"></a>
+#### Securing Pod communications <a href="#securing-pod-communications" id="securing-pod-communications"></a>
 
 In addition to spoofing access to the cluster, there’s also the threat of spoofing app-to-app communications. In Kubernetes, this can be when one Pod spoofs another. Fortunately, Pods can have certificates to authenticate their identity.
 
@@ -113,7 +113,7 @@ The above example, inspired by the official Kubernetes docs, sets an expiry peri
 {% endstep %}
 
 {% step %}
-### Tampering
+#### Tampering
 
 Tampering is the act of changing something in a malicious way to cause one of the following:
 
@@ -122,7 +122,7 @@ Tampering is the act of changing something in a malicious way to cause one of th
 
 Tampering can be hard to avoid, so a common countermeasure is to make it obvious when something has been tampered with. A common non-Kubernetes example is packaging medication—most over-the-counter drugs are packaged with tamper-proof seals that make it obvious if the product has been tampered with.
 
-### Tampering with Kubernetes components <a href="#tampering-with-kubernetes-components" id="tampering-with-kubernetes-components"></a>
+#### Tampering with Kubernetes components <a href="#tampering-with-kubernetes-components" id="tampering-with-kubernetes-components"></a>
 
 Tampering with any of the following Kubernetes components can cause problems:
 
@@ -136,7 +136,7 @@ Generally speaking, tampering happens either _in transit_ or _at rest_. In trans
 
 TLS is a great tool for protecting against _in-transit_ tampering as it provides built-in integrity guarantees that warn us when data has been tampered with.
 
-### Data security in Kubernetes <a href="#data-security-in-kubernetes" id="data-security-in-kubernetes"></a>
+#### Data security in Kubernetes <a href="#data-security-in-kubernetes" id="data-security-in-kubernetes"></a>
 
 The following recommendations can also help prevent tampering with data when it is _at rest_ in Kubernetes:
 
@@ -156,7 +156,7 @@ The following example uses a common Linux audit daemon to audit access to the `d
 $ auditctl -w /usr/bin/docker -p wxa -k audit-docker
 ```
 
-### Tampering with applications running on Kubernetes <a href="#tampering-with-applications-running-on-kubernetes" id="tampering-with-applications-running-on-kubernetes"></a>
+#### Tampering with applications running on Kubernetes <a href="#tampering-with-applications-running-on-kubernetes" id="tampering-with-applications-running-on-kubernetes"></a>
 
 Malicious actors will also target application components, as well as infrastructure components.
 
@@ -186,7 +186,7 @@ The above YAML shows how to configure both settings in a Pod manifest. In the ex
 {% endstep %}
 
 {% step %}
-### Repudiation
+#### Repudiation
 
 At a very high level, **repudiation** creates doubt about something. Non-repudiation provides proof about something. In the context of information security, non-repudiation is _proving_ certain individuals carried out certain actions.
 
@@ -201,7 +201,7 @@ Digging a little deeper, non-repudiation includes the ability to prove:
 
 Answering the last two can be the hardest and usually requires the correlation of several events over a period of time.
 
-### How to acheive non-repudiation <a href="#how-to-acheive-non-repudiation" id="how-to-acheive-non-repudiation"></a>
+#### How to acheive non-repudiation <a href="#how-to-acheive-non-repudiation" id="how-to-acheive-non-repudiation"></a>
 
 Auditing Kubernetes API server events can help answer these questions. The following is an example of an API server audit event (we may need to enable auditing on our API server).
 
@@ -257,11 +257,11 @@ When combined and correlated with Kubernetes’ audit features, audit logs like 
 {% endstep %}
 
 {% step %}
-### Information Disclosure
+#### Information Disclosure
 
 Information disclosure is when sensitive data is leaked. Common examples include hacked data stores and APIs that unintentionally expose sensitive data.
 
-### Protecting cluster data <a href="#protecting-cluster-data" id="protecting-cluster-data"></a>
+#### Protecting cluster data <a href="#protecting-cluster-data" id="protecting-cluster-data"></a>
 
 The entire configuration of a Kubernetes cluster is stored in the cluster store (usually etcd). This includes network and storage configuration, passwords, the cluster CA, and more. This makes the cluster store a prime target for information disclosure attacks.
 
@@ -273,7 +273,7 @@ Fortunately, Kubernetes 1.11 enabled a beta feature that lets us store _key encr
 
 Keep an eye on upcoming versions of Kubernetes for further improvements to encryption of Secrets.
 
-### Protecting data in Pods <a href="#protecting-data-in-pods" id="protecting-data-in-pods"></a>
+#### Protecting data in Pods <a href="#protecting-data-in-pods" id="protecting-data-in-pods"></a>
 
 As previously mentioned, Kubernetes has an API resource called a Secret that is the preferred way to store and share sensitive data such as passwords. For example, a front-end container accessing an encrypted back-end database can have the key to decrypt the database mounted as a Secret. This is far better than storing the decryption key in a plain text file or environment variable.
 
@@ -283,7 +283,7 @@ Despite all of this, we must consider the caveats outlined in the previous secti
 {% endstep %}
 
 {% step %}
-### Denial-of-Service (DoS)
+#### Denial-of-Service (DoS)
 
 Denial-of-service (DoS) is about making something unavailable.
 
@@ -291,7 +291,7 @@ There are many types of DoS attacks, but a well-known variation is overloading a
 
 Let’s look at some potential Kubernetes systems that might be targets of DoS attacks, as well as some ways to protect and mitigate them.
 
-### Protecting cluster resources against DoS attacks <a href="#protecting-cluster-resources-against-dos-attacks" id="protecting-cluster-resources-against-dos-attacks"></a>
+#### Protecting cluster resources against DoS attacks <a href="#protecting-cluster-resources-against-dos-attacks" id="protecting-cluster-resources-against-dos-attacks"></a>
 
 It’s a time-honored best practice to replicate essential services on multiple nodes for high availability (HA). Kubernetes is no different, and we should run multiple control plane nodes in an HA configuration for our production environments. Doing this prevents any control plane node from becoming a single point of failure. In relation to certain types of DoS attacks, an attacker may need to attack more than one control plane node to have a meaningful impact.
 
@@ -332,7 +332,7 @@ Assume a Pod is the target of a fork bomb attack where a rogue process attempts 
 
 This also ensures a single Pod doesn’t exhaust the PID range for all the other Pods on the node, including the kubelet. However, setting the correct value requires a reasonable estimate of how many Pods will run simultaneously on each node, and we can easily over or under-allocate PIDs to each pod without a ballpark estimate.
 
-### Protecting the API Server against DoS attacks <a href="#protecting-the-api-server-against-dos-attacks" id="protecting-the-api-server-against-dos-attacks"></a>
+#### Protecting the API Server against DoS attacks <a href="#protecting-the-api-server-against-dos-attacks" id="protecting-the-api-server-against-dos-attacks"></a>
 
 The API server exposes a RESTful interface over a TCP socket. This makes it a target for botnet-based DoS attacks.
 
@@ -344,7 +344,7 @@ The following may be helpful in either preventing or mitigating such attacks:
 
 As well as botnet DoS attacks, an attacker may also attempt to spoof a user or other control plane service to cause an overload. Fortunately, Kubernetes has robust authentication and authorization controls to prevent spoofing. However, even with a robust RBAC model, we must safeguard access to accounts with high privileges.
 
-### Protecting the cluster store against DoS attacks <a href="#protecting-the-cluster-store-against-dos-attacks" id="protecting-the-cluster-store-against-dos-attacks"></a>
+#### Protecting the cluster store against DoS attacks <a href="#protecting-the-cluster-store-against-dos-attacks" id="protecting-the-cluster-store-against-dos-attacks"></a>
 
 Kubernetes stores cluster configuration in etcd. This makes it vital that etcd be available and secure. The following recommendations help accomplish this:
 
@@ -358,7 +358,7 @@ On the performance front, etcd is the most common choking point for large Kubern
 
 Monitoring and alerting of etcd should be based on some thresholds, and a good place to start is by monitoring etcd log entries.
 
-### Protecting application components against DoS attacks <a href="#protecting-application-components-against-dos-attacks" id="protecting-application-components-against-dos-attacks"></a>
+#### Protecting application components against DoS attacks <a href="#protecting-application-components-against-dos-attacks" id="protecting-application-components-against-dos-attacks"></a>
 
 Most Pods expose their main service on the network, and without additional controls in place, anyone with access to the network can perform a DoS attack on the Pod. Fortunately, Kubernetes provides Pod resource request limits to prevent such attacks from exhausting Pod and node resources. As well as these, the following will be helpful:
 
@@ -367,19 +367,19 @@ Most Pods expose their main service on the network, and without additional contr
 
 For defense in depth, we should also implement application layer authorization policies that implement the least privilege.
 
-<figure><img src="../.gitbook/assets/image (17).png" alt="" width="558"><figcaption><p>The process after applying network layer and application layer authorization policies</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16).png" alt="" width="558"><figcaption><p>The process after applying network layer and application layer authorization policies</p></figcaption></figure>
 
 The above figure shows how these can be combined to make it hard for an attacker to successfully carry out a denial-of-service (DoS) attack on an application.
 {% endstep %}
 
 {% step %}
-### Elevation of Privilege
+#### Elevation of Privilege
 
 **Privilege escalation** is gaining higher access than what is granted. The aim is to cause damage or gain unauthorized access.
 
 Let’s look at a few ways to prevent this in a Kubernetes environment.
 
-### Protecting the API server <a href="#protecting-the-api-server" id="protecting-the-api-server"></a>
+#### Protecting the API server <a href="#protecting-the-api-server" id="protecting-the-api-server"></a>
 
 Kubernetes offers several authorization modes that help safeguard access to the API server. These include:
 
@@ -398,4 +398,3 @@ We should run multiple authorizers at the same time. For example, it’s common 
 {% endstepper %}
 
 ***
-

@@ -21,7 +21,7 @@
 
 ## Working With Pods: Theory
 
-* [Page 10](working-with-pods-theory/page-10.md)
+* [Pod Theory and Scheduling](working-with-pods-theory/page-10.md)
 
 ## Working With Pods: Hands On
 

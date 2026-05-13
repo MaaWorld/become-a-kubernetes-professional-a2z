@@ -11,7 +11,7 @@ Kubernetes is both of the following:
 
 {% stepper %}
 {% step %}
-### Kubernetes: Cluster
+#### Kubernetes: Cluster
 
 A Kubernetes cluster is one or more _nodes_ providing CPU, memory, and other resources for use by applications.
 
@@ -34,7 +34,7 @@ It’s common to run user applications on control plane nodes in development and
 {% endstep %}
 
 {% step %}
-### Kubernetes: Orchestrator
+#### Kubernetes: Orchestrator
 
 rchestrator is jargon for a system that deploys and manages applications.
 
