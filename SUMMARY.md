@@ -84,6 +84,7 @@
 * [CI/CD Pipeline](real-world-kubernetes-security/ci-cd-pipeline.md)
 * [Moving Images From Non-Production to Production](real-world-kubernetes-security/moving-images-from-non-production-to-production.md)
 * [Workload Isolation](real-world-kubernetes-security/workload-isolation.md)
+* [IAM & Security Monitoring](real-world-kubernetes-security/iam-and-security-monitoring.md)
 
 ## Conclusion
 
