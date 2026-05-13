@@ -1,3 +1,7 @@
+---
+icon: kubernetes
+---
+
 # Control Plane and Worker Nodes
 
 ### The control plane <a href="#the-control-plane" id="the-control-plane"></a>
