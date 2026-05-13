@@ -78,6 +78,7 @@
 ## Threat Modeling Kubernetes
 
 * [Introduction to Threat Modeling](threat-modeling-kubernetes/introduction-to-threat-modeling.md)
+* [Pod Security](threat-modeling-kubernetes/pod-security.md)
 
 ## Real-World Kubernetes Security
 
