@@ -9,4 +9,4 @@
 
 ## Kubernetes Principles
 
-* [Page 1](kubernetes-principles/page-1.md)
+* [Kubernetes from 40K Feet](kubernetes-principles/page-1.md)
