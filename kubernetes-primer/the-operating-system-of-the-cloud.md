@@ -12,7 +12,7 @@ Most people pronounce Kubernetes as _koo-ber-net-eez_, but the community is very
 
 Kubernetes comes from the Greek word for _helmsman_, or the person who steers a ship. The logo, a ship’s wheel, reflects this.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="188"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="188"><figcaption></figcaption></figure>
 
 &#x20;Some original engineers wanted to call Kubernetes _Seven of Nine_ after the famous Borg drone from the TV series Star Trek Voyager. Copyright laws wouldn’t allow this, so they gave the logo _seven_ spokes as a subtle reference to _Seven of Nine_.
 
