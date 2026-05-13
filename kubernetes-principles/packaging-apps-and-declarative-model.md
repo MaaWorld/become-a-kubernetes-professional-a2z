@@ -31,7 +31,7 @@ Again, Kubernetes is similar. It implements controllers that add value, such as 
 
 The following figure shows a container wrapped in a Pod, which, in turn, is wrapped in a Deployment. Don’t worry about the YAML configuration. It’s just there to seed the idea.
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="563"><figcaption><p>Object nesting</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt="" width="563"><figcaption><p>Object nesting</p></figcaption></figure>
 
 The important thing to understand is that each layer of wrapping adds something:
 

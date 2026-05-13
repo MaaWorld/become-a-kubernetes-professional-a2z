@@ -8,9 +8,9 @@ icon: kubernetes
 
 # Welcome | Course Introduction
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (2).png" alt="" width="188"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1).png" alt="" width="188"><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/k.gif" alt="" width="375"><figcaption></figcaption></figure>
 

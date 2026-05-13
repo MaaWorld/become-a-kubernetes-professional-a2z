@@ -28,7 +28,7 @@ Every control plane node runs every control plane service. These include the API
 
 Worker nodes are for running user applications.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>A cluster with three control plane nodes and three worker nodes</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>A cluster with three control plane nodes and three worker nodes</p></figcaption></figure>
 
 It’s common to run user applications on control plane nodes in development and test environments. However, many production environments restrict user applications to worker nodes so that control plane nodes can focus entirely on cluster operations. Doing this allows control plane nodes to focus on managing the cluster.
 {% endstep %}
