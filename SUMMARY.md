@@ -33,6 +33,7 @@
 ## Virtual Clusters with Namespaces
 
 * [Namespaces](virtual-clusters-with-namespaces/page-11.md)
+* [Creating, Managing and Deploying Objects to Namespaces](virtual-clusters-with-namespaces/creating-managing-and-deploying-objects-to-namespaces.md)
 
 ## Kubernetes Deployments
 
