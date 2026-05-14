@@ -2,6 +2,7 @@
 description: >-
   Learn how to create, inspect, and delete namespaces. Couple of ways to ways to
   deploy objects to namespaces.
+icon: kubernetes
 ---
 
 # Creating, Managing and Deploying Objects to Namespaces

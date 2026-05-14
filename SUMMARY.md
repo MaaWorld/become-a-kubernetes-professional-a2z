@@ -37,7 +37,9 @@
 
 ## Kubernetes Deployments
 
-* [Page 2](kubernetes-deployments/page-2.md)
+* [Kubernetes Deployment](kubernetes-deployments/page-2.md)
+* [How to Create a Deployment and Accessing Deployments](kubernetes-deployments/how-to-create-a-deployment-and-accessing-deployments.md)
+* [Untitled](kubernetes-deployments/untitled.md)
 
 ## Kubernetes Services: Theory
 
