@@ -28,6 +28,7 @@
 
 * [Pod Manifest Files](working-with-pods-hands-on/pod-manifest-files.md)
 * [Introspecting Pods](working-with-pods-hands-on/page-1.md)
+* [Multi-Container Pod Example: Init Container & Sidecar Container](working-with-pods-hands-on/multi-container-pod-example-init-container-and-sidecar-container.md)
 
 ## Virtual Clusters with Namespaces
 
