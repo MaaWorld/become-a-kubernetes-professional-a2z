@@ -32,7 +32,7 @@
 
 ## Virtual Clusters with Namespaces
 
-* [Page 11](virtual-clusters-with-namespaces/page-11.md)
+* [Namespaces](virtual-clusters-with-namespaces/page-11.md)
 
 ## Kubernetes Deployments
 
