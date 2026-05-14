@@ -26,8 +26,8 @@
 
 ## Working With Pods: Hands On
 
-* [Page 1](working-with-pods-hands-on/page-1.md)
 * [Pod Manifest Files](working-with-pods-hands-on/pod-manifest-files.md)
+* [Introspecting Pods](working-with-pods-hands-on/page-1.md)
 
 ## Virtual Clusters with Namespaces
 
