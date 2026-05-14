@@ -20,7 +20,7 @@ icon: kubernetes
 
 {% stepper %}
 {% step %}
-### Learn Kubernetes: A Deep Dive
+#### Learn Kubernetes: A Deep Dive
 
 This module explains Kubernetes and its concepts. The topics covered in this module are:
 
@@ -39,7 +39,7 @@ This module explains Kubernetes and its concepts. The topics covered in this mod
 {% endstep %}
 
 {% step %}
-### Advanced Kubernetes Techniques: Monitoring, Logging, and Auto-Scaling
+#### Advanced Kubernetes Techniques: Monitoring, Logging, and Auto-Scaling
 
 This module explains the advanced concepts of Kubernetes, such as monitoring, logging, and auto-scaling. The topics covered in this module are:
 
@@ -53,7 +53,7 @@ This module explains the advanced concepts of Kubernetes, such as monitoring, lo
 {% endstep %}
 
 {% step %}
-### The DevOps Toolkit: Working with Jenkins X
+#### The DevOps Toolkit: Working with Jenkins X
 
 This module teaches us how to use Jenkins X. The main topics of the module are:
 
@@ -77,4 +77,3 @@ This module teaches us how to use Jenkins X. The main topics of the module are:
 <br>
 {% endstep %}
 {% endstepper %}
-

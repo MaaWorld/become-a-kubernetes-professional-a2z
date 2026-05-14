@@ -27,7 +27,7 @@ We choose a network plugin at cluster build time, and it configures the Pod netw
 
 Figure 4.4 shows three nodes running five Pods. All five Pods are connected to the Pod network and can communicate with each other. We can also see the Pod network spanning all three nodes. However, the network is only for Pods and not nodes. As shown in the diagram, we can connect nodes to multiple networks, but the Pod network spans them all.
 
-<figure><img src="../.gitbook/assets/image (20).png" alt="" width="563"><figcaption><p>The Pod network</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19).png" alt="" width="563"><figcaption><p>The Pod network</p></figcaption></figure>
 
 A lot of clusters create a very open Pod network with little or no security. This makes the cluster easy to use and avoids frustrations commonly associated with network security. However, we should use Kubernetes Network Policies and other measures to secure it.
 

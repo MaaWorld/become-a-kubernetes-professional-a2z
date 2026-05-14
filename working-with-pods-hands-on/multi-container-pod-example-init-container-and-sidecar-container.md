@@ -6,7 +6,7 @@ icon: kubernetes
 
 {% stepper %}
 {% step %}
-### Introduction to an init container
+#### Introduction to an init container
 
 The following YAML defines a multi-container Pod with an init container and main app container.
 
@@ -111,7 +111,7 @@ If we run another `kubectl describe` against the initpod Pod, we’ll see the in
 {% endstep %}
 
 {% step %}
-### Introduction to a sidecar container
+#### Introduction to a sidecar container
 
 Sidecar containers run alongside the main application container for the entire lifecycle of the Pod. We currently define them as regular containers under the `spec.containers` section of the Pod YAML, and their job is to augment the main application container or provide a secondary support service.
 
@@ -224,7 +224,7 @@ Click the link in the above terminal to view the web page in a new browser tab. 
 
 Congratulations! The sidecar container successfully watched a remote Git repo, synced the changes to a shared volume, and the main app container updated the web page. Feel free to run the `kubectl get pods` and `kubectl describe pod` commands to see how multi-container Pods appear in the outputs.
 
-### Clean up <a href="#clean-up" id="clean-up"></a>
+#### Clean up <a href="#clean-up" id="clean-up"></a>
 
 If you’ve created a cluster on a cloud distribution, you’ll have the following objects on your cluster.
 

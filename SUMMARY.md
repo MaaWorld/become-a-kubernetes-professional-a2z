@@ -43,7 +43,7 @@
 
 ## Kubernetes Services: Theory
 
-* [Page 12](kubernetes-services-theory/page-12.md)
+* [Services](kubernetes-services-theory/page-12.md)
 
 ## Kubernetes Services: Hands-On
 
