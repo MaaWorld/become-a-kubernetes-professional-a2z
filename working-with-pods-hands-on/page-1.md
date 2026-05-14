@@ -233,3 +233,103 @@ As we can see, the container’s hostname matches the name of the Pod. All conta
 Because of this, we should ensure that Pod names are valid DNS names (a-z, 0-9, the minus and period signs).
 
 Type `exit` to quit our exec session and return to our local terminal.
+
+***
+
+## Check Pod Immutability <a href="#page-title" id="page-title"></a>
+
+Learn how to edit a live Pod and how to specify resource requests and resource limits for each container in a Pod.
+
+### Pods as immutable objects <a href="#pods-as-immutable-objects" id="pods-as-immutable-objects"></a>
+
+Pods are designed as immutable objects, meaning we shouldn’t change them after deployment.
+
+Immutability applies at two levels:
+
+* Object immutability (the Pod)
+* App immutability (containers)
+
+Kubernetes handles object immutability by preventing changes to a running Pod’s configuration. However, Kubernetes can’t always prevent us from changing the app and filesystem in containers. We’re responsible for ensuring containers and their apps are stateless and immutable.
+
+The following example uses `kubectl edit` to edit a live Pod object. Try and change any of these attributes:
+
+* Pod name
+* Container name
+* Container port
+* Resource requests and limits
+
+Run the following `kubectl edit` command in the above terminal, and it will open the file in our default editor.
+
+> **Note:** For Mac and Linux users, it will typically open the file in `vi`, whereas for Windows, it’s usually `notepad.exe`.
+
+```yaml
+// index.yaml
+
+$ kubectl edit pod hello-pod
+
+# Please edit the object below. Lines beginning with a '#' will be ignored...
+apiVersion: v1
+kind: Pod
+metadata:
+  <Snip>
+  labels:
+    version: v1
+    zone: prod
+  name: hello-pod                    <<==== Try to change this
+  namespace: default
+  resourceVersion: "432621"
+  uid: a131fb37-ceb4-4484-9e23-26c0b9e7b4f4
+spec:
+  containers:
+  - image: nigelpoulton/k8sbook:1.0
+    imagePullPolicy: IfNotPresent
+    name: hello-ctr                  <<==== Try to change this
+    ports:
+    - containerPort: 8080            <<==== Try to change this
+      protocol: TCP
+    resources:
+      limits:
+        cpu: 500m                    <<==== Try to change this
+        memory: 256Mi                <<==== Try to change this
+      requests:
+        cpu: 500m                    <<==== Try to change this
+        memory: 256Mi                <<==== Try to change this
+
+// Changing the pod specifications
+```
+
+Edit the file, save the changes, and close the editor. We’ll get a message telling us the changes are forbidden because the attributes are immutable.
+
+> **Note:** If you get stuck inside the `kubectl edit` session, you can probably exit by pressing "esc" button and then typing the following key combination — `:wq`.
+
+### Resource requests and resource limits <a href="#resource-requests-and-resource-limits" id="resource-requests-and-resource-limits"></a>
+
+Kubernetes lets us specify resource requests and resource limits for each container in a Pod.
+
+* Requests are minimum values.
+* Limits are maximum values.
+
+Consider the following snippet from a Pod YAML:
+
+```yaml
+// index.yaml
+resources:
+  requests:              <<==== Minimums for scheduling
+    cpu: 0.5
+    memory: 256Mi
+  limits:                <<==== Maximums for kubelet to cap
+    cpu: 1.0
+    memory: 512Mi
+    
+// Example snippet from a Pod YAML
+```
+
+This container needs a minimum of 256Mi of memory and half a CPU. The scheduler reads this and assigns it to a node with enough resources. If it can’t find a suitable node, it marks the Pod as pending, and the cluster auto-scaler will attempt to provision a new cluster node.
+
+Assuming the scheduler finds a suitable node, it assigns the Pod to the node, and the `kubelet` downloads the Pod spec and asks the local runtime to start it. As part of the process, the `kubelet` reserves the requested CPU and memory, guaranteeing the resources will be there when needed. It also sets a cap on resource usage based on each container’s resource limits. In this example, it sets a cap of one CPU and 512Mi of memory. Most runtimes will also enforce resource limits, but how each runtime implements this can vary.
+
+While a container executes, it is guaranteed its minimum requirements (requests). However, it’s allowed to use more if the node has additional available resources, but it’s never allowed to use more than what we specify in its limits.
+
+For multi-container Pods, the scheduler combines the requests for all containers and finds a node with enough resources to satisfy the full Pod.
+
+If you’ve been following the examples closely, you’ll have noticed that the `pod.yml` we used to deploy the `hello-pod` only specified resource limits — it didn’t specify resource requests. However, some command outputs have shown limits and requests. This is because Kubernetes automatically sets requests to match limits if we only specify limits.
