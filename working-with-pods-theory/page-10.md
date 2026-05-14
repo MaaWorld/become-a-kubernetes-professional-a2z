@@ -1,3 +1,7 @@
+---
+icon: kubernetes
+---
+
 # Pod Theory and Scheduling
 
 Every app on Kubernetes runs inside a Pod.
